@@ -10,7 +10,7 @@ import scala.concurrent.Future
   */
 trait PersistableRepository[T <: AggregateRoot]
     extends Repository[T] {
-
+/*
   /** Apply local changes to the persistent store.
     *
     * @param inserts new aggregate roots
@@ -103,6 +103,7 @@ trait PersistableRepository[T <: AggregateRoot]
     require(delete ne null, "null value provided for delete")
     persist(Seq.empty, Seq.empty, Seq(delete)).map(_ => ())
   }
+*/
 }
 
 trait PersistableRepositoryAspect[T <: AggregateRoot] {

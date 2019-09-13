@@ -90,7 +90,7 @@ private[revenj] class LocatorDataContext(
   override def search[T <: DataSource : TypeTag](filter: Option[Specification[T]] = None, limit: Option[Int] = None, offset: Option[Int] = None): Future[IndexedSeq[T]] = {
     getSearchableRepository[T](findManifest[T]).search(filter, limit, offset)
   }
-
+/*
   override def count[T <: DataSource : TypeTag](filter: Option[Specification[T]] = None): Future[Long] = {
     getSearchableRepository[T](findManifest[T]).count(filter)
   }
@@ -142,7 +142,7 @@ private[revenj] class LocatorDataContext(
   override def populate[T: TypeTag](report: Report[T]): Future[T] = {
     report.populate(scope)
   }
-
+*/
   override def commit(): Future[Unit] = {
     Future
       .sequence[Any, Set](changes.toSet)

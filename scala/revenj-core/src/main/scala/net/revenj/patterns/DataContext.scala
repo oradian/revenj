@@ -15,7 +15,7 @@ trait DataContext {
   def search[T <: DataSource : TypeTag](filter: Specification[T]): Future[IndexedSeq[T]] = {
     search(Some(filter), None, None)
   }
-
+/*
   def count[T <: DataSource : TypeTag](filter: Option[Specification[T]] = None): Future[Long]
   def count[T <: DataSource : TypeTag](filter: Specification[T]): Future[Long] = {
     count(Some(filter))
@@ -59,4 +59,5 @@ trait DataContext {
   }
 
   def populate[T : TypeTag](report: Report[T]): Future[T]
+*/
 }

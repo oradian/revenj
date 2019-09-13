@@ -1,12 +1,13 @@
 import com.dslplatform.compiler.client.parameters.{Settings, Targets}
 
+version in ThisBuild := "0.9.5-oradian-20190913-1630"
+
 lazy val DSL = SbtDslPlatformPlugin.autoImport.dsl
 
 lazy val core = (project in file("revenj-core")
   settings (commonSettings ++ publishSettings)
   enablePlugins(SbtDslPlatformPlugin)
   settings(
-    version := "0.9.5",
     libraryDependencies ++= Seq(
       "org.postgresql" % "postgresql" % "42.2.6",
       "joda-time" % "joda-time" % "2.9.9",   // TODO: will be removed
@@ -40,7 +41,6 @@ lazy val akka = (project in file("revenj-akka")
 lazy val storage = (project in file("revenj-storage")
   settings (commonSettings ++ publishSettings)
   settings(
-    version := "0.9.5",
     libraryDependencies ++= Seq(
       "com.amazonaws" % "aws-java-sdk-s3" % "1.11.578",
       "org.specs2" %% "specs2-scalacheck" % "3.8.6" % Test

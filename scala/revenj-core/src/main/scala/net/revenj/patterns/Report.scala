@@ -25,7 +25,9 @@ import scala.concurrent.Future
   * }}}
   */
 trait Report[T] {
+/*
   def populate(locator: ServiceLocator): Future[T]
+ */
 }
 
 trait ReportAspect[R, T <: Report[R]] {

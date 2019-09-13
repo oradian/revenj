@@ -23,7 +23,7 @@ trait SearchableRepository[T <: DataSource] {
       specification: Option[Specification[T]] = None,
       limit: Option[Int] = None,
       offset: Option[Int] = None): Future[IndexedSeq[T]]
-
+/*
   /** Returns the number of elements satisfying provided specification.
     *
     * @param specification search predicate
@@ -37,4 +37,5 @@ trait SearchableRepository[T <: DataSource] {
     * @return              at least one element satisfies specification
     */
   def exists(specification: Option[Specification[T]] = None): Future[Boolean]
+*/
 }

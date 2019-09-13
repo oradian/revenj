@@ -6,7 +6,7 @@ import scala.concurrent.Future
 
 trait Event
 
-trait Command extends Event with ValidationErrors
+trait Command extends Event with Identifiable with ValidationErrors
 
 /** Domain event represents an meaningful business event that occurred in the system.
   * It is a message that back-end system knows how to process and that will
@@ -60,7 +60,7 @@ trait AggregateDomainEventHandler[TAgg <: AggregateRoot, TDE <: AggregateDomainE
 }
 
 trait EventStore[T <: Event] {
-
+/*
   def submit(events: Seq[T]): Future[IndexedSeq[String]]
 
   def submit(event: T): Future[String] = {
@@ -68,19 +68,21 @@ trait EventStore[T <: Event] {
     require(event ne null, "null value provided for event")
     submit(Seq(event)).map(_.head)
   }
+*/
 }
 
 trait DomainEventStore[T <: DomainEvent] extends EventStore[T] with Repository[T] with SearchableRepository[T] {
 }
 
 trait AsyncDomainEventStore[T <: DomainEvent] extends DomainEventStore[T] {
-
+/*
   def mark(events: Seq[T]): Future[Unit]
 
   def mark(event: T): Future[Unit] = {
     require(event ne null, "null value provided for event")
     mark(Seq(event))
   }
+ */
 }
 
 trait EventStoreAspect[T <: Event] {

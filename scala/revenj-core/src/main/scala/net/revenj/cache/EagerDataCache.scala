@@ -128,7 +128,7 @@ class EagerDataCache[T <: Identifiable, PK](
     val skipped = if (offset.isDefined) filtered.drop(offset.get) else filtered
     Future.successful(if (limit.isDefined) skipped.take(limit.get) else skipped)
   }
-
+/*
   override def count(specification: Option[Specification[T]]): Future[Long] = {
     val items = cache.values.toIndexedSeq
     Future.successful(if (specification.isDefined) items.count(specification.get).toLong else items.size.toLong)
@@ -138,7 +138,7 @@ class EagerDataCache[T <: Identifiable, PK](
     val items = cache.values.toIndexedSeq
     Future.successful(if (specification.isDefined) items.exists(specification.get) else items.nonEmpty)
   }
-
+*/
   def close(): Unit = {
     subscription.cancel()
   }
